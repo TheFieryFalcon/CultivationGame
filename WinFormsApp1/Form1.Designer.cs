@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using CultivationGame;
+
+namespace WinFormsApp1
 {
     partial class Form1
     {
@@ -47,19 +49,22 @@
             // 
             // Cultivate
             // 
-            Cultivate.Location = new Point(35, 264);
+            Cultivate.BackColor = Color.Transparent;
+            Cultivate.FlatStyle = FlatStyle.Flat;
+            Cultivate.ForeColor = Color.Transparent;
+            Cultivate.Image = Properties.Resources.cultivation_button_d;
+            Cultivate.Location = new Point(108, 244);
             Cultivate.Name = "Cultivate";
-            Cultivate.Size = new Size(207, 76);
+            Cultivate.Size = new Size(96, 96);
             Cultivate.TabIndex = 1;
-            Cultivate.Text = "Cultivate";
-            Cultivate.UseVisualStyleBackColor = true;
+            Cultivate.UseVisualStyleBackColor = false;
             Cultivate.Click += Cultivate_Click;
             Cultivate.MouseEnter += Cultivate_MouseEnter;
             Cultivate.MouseLeave += Cultivate_MouseLeave;
             // 
             // Breakthrough
             // 
-            Breakthrough.Location = new Point(276, 264);
+            Breakthrough.Location = new Point(448, 264);
             Breakthrough.Name = "Breakthrough";
             Breakthrough.Size = new Size(207, 76);
             Breakthrough.TabIndex = 2;

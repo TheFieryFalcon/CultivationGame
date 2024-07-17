@@ -5,6 +5,7 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        public static bool UseBorderedIconCB = false;
         public Form1()
         {
             InitializeComponent();
@@ -30,24 +31,34 @@ namespace WinFormsApp1
             {
                 Game.StopCultSignal = false;
                 Game.StartCultivating();
-                
+                Cultivate.Image = Properties.Resources.cultivation_button_c;
+
             }
             else
             {
                 Game.StopCultSignal = true;
+                Game.IsCultivating = false;
+                Cultivate.Image = Properties.Resources.cultivation_button_d;
             }
 
-            
+
 
         }
         private void Cultivate_MouseEnter(object sender, EventArgs e)
         {
-
+            Cultivate.Image = Properties.Resources.cultivation_button_h;
         }
 
         private void Cultivate_MouseLeave(object sender, EventArgs e)
         {
-
+            if (Game.IsCultivating == false)
+            {
+                Cultivate.Image = Properties.Resources.cultivation_button_d;
+            }
+            else
+            {
+                Cultivate.Image = Properties.Resources.cultivation_button_c;
+            }
         }
 
         private void Breakthrough_Click(object sender, EventArgs e)

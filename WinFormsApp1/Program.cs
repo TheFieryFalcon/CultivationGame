@@ -43,32 +43,21 @@ namespace CultivationGame
     public class Game
     {
 
-        public static bool IsCultivating = false; //only here because I get really confused with the 
+        public static bool IsCultivating = false; //only here because I get really confused with the StopCultSignal var, does effectively the same thing
         public static bool StopCultSignal = true;
-        public static System.Timers.Timer timer = new System.Timers.Timer(200);
         
 
-        public static void StartCultivating()
+        public static async Task StartCultivating()
         {
             if (StopCultSignal == false)
             {
                 IsCultivating = true;
                 PlayerData.Qi = PlayerData.QiGatheringRate + PlayerData.Qi;
-                timer.Elapsed += OnTimerElapsed;
-                timer.AutoReset = true;
-                timer.Enabled = true;
+                await Task.Delay(200);
+                StartCultivating();
                 
             }
-            else
-            {
-                IsCultivating = false;
-            }
 
-        }
-        private static void OnTimerElapsed(object sender, ElapsedEventArgs e)
-        {
-            StartCultivating();
-            
         }
     }
 }
