@@ -1,6 +1,6 @@
 using CultivationGame;
 using System.Media;
-
+using RomanNumerals;
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
@@ -17,11 +17,13 @@ namespace WinFormsApp1
             timer.Interval = (100);
             timer.Tick += new EventHandler(TickTimer);
             timer.Start();
+            progressBar1.Maximum = (int)PlayerData.QiRequirement; //think of a way to handle this better later
         }
 
         private void TickTimer(object sender, EventArgs e)
         {
-            label2.Text = "Qi: " + PlayerData.Qi.ToString() + "/" + PlayerData.QiRequirement.ToString();
+            label2.Text = "Qi: " + PlayerData.Qi.ToString() + "/" + PlayerData.QiRequirement.ToString() + ", Realm: " + PlayerData.CultivationStage.Item1.Name + " " + RomanNumerals.Convert.ToRomanNumerals(PlayerData.CultivationStage.Item2);
+            Func<int, int, int> a = (x, y) => { if (x > y) { return (y); } else { return (x); } }; progressBar1.Value = a((int)PlayerData.Qi, (int)PlayerData.QiRequirement);
             Refresh();
         }
 
@@ -61,9 +63,20 @@ namespace WinFormsApp1
             }
         }
 
-        private void Breakthrough_Click(object sender, EventArgs e)
+        private async void Breakthrough_Click(object sender, EventArgs e)
         {
-
+            if (PlayerData.Qi > PlayerData.QiRequirement)
+            {
+                progressBar1.Maximum = 100;
+                for (int i = 0; i < 1000; i++)
+                {
+                    label2.Text = "Breaking through... (" + (i / 10).ToString() + "% complete)";
+                    progressBar1.Value = i / 10;
+                    await Task.Delay(10);
+                }
+                progressBar1.Value = (int)PlayerData.Qi;
+                progressBar1.Maximum = (int)PlayerData.QiRequirement;
+            }
         }
 
 
