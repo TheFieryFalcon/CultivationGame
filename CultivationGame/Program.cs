@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 
 namespace CultivationGame
 {
-    public record CultivationLevel(string Name, uint Stages, Tuple<Item, int>? BreakthroughRequirement, long BaseQiRequirement, int FailChance, int? RollRangeMax, string Description);
+    public record CultivationLevel(string Name, uint Stages, Tuple<Item, int>? BreakthroughRequirement, long BaseQiRequirement, int FailChance, int? RollRangeMax, string Description, string NextStage);
     public record Herb(Item Item, string Name, Location Location, Grade Grade, int Rarity, int SkillRequired, string Description);
     public record Pill(Item Item, string Name, Grade Grade, int SkillRequired, CultivationLevel CultivationLvlRequired, int FailChance, Grade FurnaceRequired, string Description);
     public static class CultivationLevels
     {
-        public static CultivationLevel MortalRealm = new("Mortal", 5, (Item.QiCondensationPill, 1).ToTuple(), 10, 1, null, "The first realm (PLACEHOLDER)");
-        public static CultivationLevel QiCondensationRealm = new("Mortal", 5, (Item.FoundationBuildingPill, 2).ToTuple(), 800, 5, null, "The second realm (PLACEHOLDER)");
+        public static CultivationLevel MortalRealm = new("Mortal", 5, (Item.QiCondensationPill, 1).ToTuple(), 10, 1, null, "The first realm (PLACEHOLDER)", "QiCondensationRealm");
+        public static CultivationLevel QiCondensationRealm = new("Qi Condensation", 10, (Item.FoundationBuildingPill, 2).ToTuple(), 800, 5, null, "The second realm (PLACEHOLDER)", "FoundationRealm");
     }
     public static class Herbs
     {

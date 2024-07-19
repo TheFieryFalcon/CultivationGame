@@ -10,15 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="assets\bg\room_bg.jpg" />
     <None Remove="assets\icons\breakthrough_button.png" />
     <None Remove="assets\icons\breakthrough_button_c.png" />
     <None Remove="assets\icons\cultivation_button.png" />
     <None Remove="assets\icons\cultivation_button_c.png" />
     <None Remove="assets\icons\cultivation_button_h.png" />
-    <None Remove="cultivation_button_c.png" />
-    <None Remove="guylotuspositionBLACK.png" />
-    <None Remove="room_bg.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,20 +22,38 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="MainWindow.xaml.cs" />
+    <Compile Include="MathConverter.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="assets\bg\room_bg.jpg" />
-    <Content Include="assets\icons\breakthrough_button.png" />
-    <Content Include="assets\icons\breakthrough_button_c.png" />
-    <Content Include="assets\icons\cultivation_button.png" />
-    <Content Include="assets\icons\cultivation_button_c.png" />
-    <Content Include="assets\icons\cultivation_button_h.png" />
+    <Content Include="assets\icons\breakthrough_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\icons\breakthrough_button_c.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\icons\cultivation_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\icons\cultivation_button_c.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\icons\cultivation_button_h.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="CultivationGame - Copy.csproj" />
+    <Content Include="assets\bg\cultivation_room_bg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
 </Project>

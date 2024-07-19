@@ -3,22 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ikriv="clr-namespace:IKriv.Wpf"
         xmlns:local="clr-namespace:CultivationGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="460" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template" Value="{DynamicResource ButtonTemplateNonFocusable}"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
     <Grid>
-        <Label x:Name="Title" Content="Cultivation Game" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Button x:Name="Cultivate_Button" Content="Button" HorizontalAlignment="Left" Margin="86,198,0,0" VerticalAlignment="Top" Height="96" Width="96" Click="Cultivation_Click" FontSize="0.01">
+        <Grid.Background>
+            <ImageBrush ImageSource="/assets/bg/cultivation_room_bg.png"/>
+        </Grid.Background>
+        <ContentControl Focusable="False" Height="450" Grid.ColumnSpan="2" Margin="0,0,0,-6" >
+            <ContentControl.Background>
+                <ImageBrush ImageSource="/assets/bg/cultivation_room_bg.png"/>
+            </ContentControl.Background>
+        </ContentControl>
+        <Label x:Name="Title" Content="Cultivation Game" HorizontalAlignment="Left" Margin="259,10,0,0" VerticalAlignment="Top" FontSize="36" Grid.ColumnSpan="2"/>
+        <Button Template="{DynamicResource ButtonTemplateNonFocusable}" x:Name="Cultivate" Content="Button" HorizontalAlignment="Left" Margin="152,198,0,0" VerticalAlignment="Top" Height="96" Width="96" Click="Cultivation_Click" FontSize="0.01" BorderBrush="#00707070" Focusable="False">
             <Button.Background>
-                <ImageBrush/>
+                <ImageBrush ImageSource="/assets/icons/cultivation_button.png"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="Breakthrough" HorizontalAlignment="Left" Margin="552,198,0,0" VerticalAlignment="Top" Width="96" Height="96" Click="Breakthrough_Click" BorderBrush="#00707070" Focusable="False" Template="{DynamicResource ButtonTemplateNonFocusable}">
+            <Button.Background>
+                <ImageBrush ImageSource="/assets/icons/breakthrough_button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Breakthrough" HorizontalAlignment="Left" Margin="553,198,0,0" VerticalAlignment="Top" Width="96" Height="96" Click="Breakthrough_Click">
-            <Button.Background>
-                <ImageBrush/>
-            </Button.Background>
-        </Button>
-        <ProgressBar x:Name="QiProgress" HorizontalAlignment="Center" Height="20" Margin="0,414,0,0" VerticalAlignment="Top" Width="800">
+        <ProgressBar x:Name="QiProgress" HorizontalAlignment="Left" Height="20" Margin="0,404,0,0" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="2">
             <ProgressBar.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF20516B" Offset="0"/>
@@ -26,7 +53,7 @@
                 </LinearGradientBrush>
             </ProgressBar.Foreground>
         </ProgressBar>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="359,385,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="QPLabel" Content="Label" HorizontalAlignment="Center" Margin="0,373,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

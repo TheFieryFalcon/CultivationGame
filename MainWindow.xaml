@@ -1,0 +1,49 @@
+﻿
+<Window x:Class="CultivationGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ikriv="clr-namespace:IKriv.Wpf"
+        xmlns:local="clr-namespace:CultivationGame"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template" Value="{DynamicResource ButtonTemplateNonFocusable}"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <ContentControl Focusable="False" />
+        <Label x:Name="Title" Content="Cultivation Game" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Button Template="{DynamicResource ButtonTemplateNonFocusable}" x:Name="Cultivate" Content="Button" HorizontalAlignment="Left" Margin="86,198,0,0" VerticalAlignment="Top" Height="96" Width="96" Click="Cultivation_Click" FontSize="0.01" BorderBrush="#00707070" Focusable="False">
+            <Button.Background>
+                <ImageBrush ImageSource="/assets/icons/cultivation_button.png"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="Breakthrough" HorizontalAlignment="Left" Margin="553,198,0,0" VerticalAlignment="Top" Width="96" Height="96" Click="Breakthrough_Click" BorderBrush="#00707070" Focusable="False" Template="{DynamicResource ButtonTemplateNonFocusable}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <ProgressBar x:Name="QiProgress" HorizontalAlignment="Center" Height="20" Margin="0,404,0,0" VerticalAlignment="Top" Width="800">
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF20516B" Offset="0"/>
+                    <GradientStop Color="#FF3B8AB3" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        <Label Content="Label" HorizontalAlignment="Center" Margin="0,373,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
