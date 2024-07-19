@@ -20,9 +20,44 @@ namespace CultivationGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ImageBrush brush = new();
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void Cultivation_Click(object sender, EventArgs e)
+        {
+            
+            if (Game.StopCultSignal == true)
+            {
+                brush.ImageSource = new BitmapImage(new Uri(@"assets\icons\breakthrough_button_c.png", UriKind.Relative));
+                Game.StopCultSignal = false;
+                Game.StartCultivating();
+                Cultivate_Button.Background = brush;
+                
+            }
+            else
+            {
+                brush.ImageSource = new BitmapImage(new Uri(@"assets\icons\breakthrough_button.png", UriKind.Relative));
+                Game.StopCultSignal = true;
+                Game.IsCultivating = false;
+                Cultivate_Button.Background = brush;
+            }
+
+
+
+        }
+
+        private void Breakthrough_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async Task UpdateGame()
+        {
+
         }
     }
 }

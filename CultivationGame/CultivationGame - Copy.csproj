@@ -22,24 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="App.xaml.cs" />
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Items.cs" />
-    <Compile Include="MainWindow.xaml.cs" />
-    <Compile Include="Program.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="assets\bg\room_bg.jpg" />
     <Content Include="assets\icons\breakthrough_button.png" />
     <Content Include="assets\icons\breakthrough_button_c.png" />
     <Content Include="assets\icons\cultivation_button.png" />
     <Content Include="assets\icons\cultivation_button_c.png" />
     <Content Include="assets\icons\cultivation_button_h.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="CultivationGame - Copy.csproj" />
   </ItemGroup>
 
 </Project>

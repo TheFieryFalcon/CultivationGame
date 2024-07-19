@@ -8,6 +8,25 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Label x:Name="Title" Content="Cultivation Game" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Button x:Name="Cultivate_Button" Content="Button" HorizontalAlignment="Left" Margin="86,198,0,0" VerticalAlignment="Top" Height="96" Width="96" Click="Cultivation_Click" FontSize="0.01">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Breakthrough" HorizontalAlignment="Left" Margin="553,198,0,0" VerticalAlignment="Top" Width="96" Height="96" Click="Breakthrough_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <ProgressBar x:Name="QiProgress" HorizontalAlignment="Center" Height="20" Margin="0,414,0,0" VerticalAlignment="Top" Width="800">
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF20516B" Offset="0"/>
+                    <GradientStop Color="#FF3B8AB3" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="359,385,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
